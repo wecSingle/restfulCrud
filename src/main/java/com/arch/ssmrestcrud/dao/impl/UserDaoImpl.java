@@ -30,19 +30,19 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public UserInfo getUserByName(String userName) {
-        UserInfo mUser = sqlSessionTemplate.selectOne("UserMapper.getUserByName", userName);
+        UserInfo mUser = sqlSessionTemplate.selectOne("getUserByName", userName);
         return mUser;
     }
 
     @Override
     public UserInfo getUserById(String id) {
-        UserInfo mUser = sqlSessionTemplate.selectOne("UserMapper.getUserById", id);
+        UserInfo mUser = sqlSessionTemplate.selectOne("getUserById", id);
         return mUser;
     }
 
     @Override
     public boolean updateUser(UserInfo mUser) {
-        int num = sqlSessionTemplate.update("UserMapper.updateUser", mUser);
+        int num = sqlSessionTemplate.update("updateUser", mUser);
         boolean result = false;
         if (num > 0) {
             result = true;
@@ -52,7 +52,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public boolean deleteUser(String id){
-        int num = sqlSessionTemplate.update("UserMapper.deleteUser", id);
+        int num = sqlSessionTemplate.update("deleteUser", id);
         boolean result = false;
         if (num > 0) {
             result = true;
